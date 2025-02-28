@@ -1,0 +1,47 @@
+@use '../util' as *;
+
+.card {
+    background-color: var(--white);
+    width: rem(300);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: rem(24);
+
+    &__text {
+        text-align: left;
+        margin-bottom: rem(24);
+    }
+
+    &__title {
+        font-size: rem(20);
+        font-weight: 600;
+        color: var(--grey-500);
+    }
+
+    &__description {
+        font-size: rem(15);
+        font-weight: 400;
+        color: var(--grey-400);
+    }
+
+    &--supervisor {}
+
+    &--team {}
+
+    &--karma {}
+
+    &--calculator {}
+
+    &__icon {
+        align-self: flex-end;
+
+        &--supervisor {}
+
+        &--team {}
+
+        &--karma {}
+
+        &--calculator {}
+    }
+}
