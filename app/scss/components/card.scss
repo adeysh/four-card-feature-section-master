@@ -28,12 +28,7 @@
     width: rem(350);
     margin: 0 auto;
 
-
-    @include breakpoint(medium) {
-        width: rem(360);
-    }
-
-    @include breakpoint(medium) {
+    @include breakpoint(large) {
         width: rem(330);
     }
 
