@@ -1,16 +1,52 @@
 @use '../util' as *;
 
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "b"
+        "a"
+        "d"
+        "c";
+    justify-items: center;
+    gap: rem(32);
+
+    @include breakpoint(large) {
+        grid-template-columns: repeat(auto-fit, 1fr);
+        grid-template-rows: repeat(4, .5fr);
+        grid-template-areas:
+            ". a ."
+            "b a c"
+            "b d c"
+            ". d .";
+    }
+}
+
 .card {
     background-color: var(--white);
-    width: rem(300);
-    border: 1px solid black;
+    width: rem(350);
+    margin: 0 auto;
+
+
+    @include breakpoint(medium) {
+        width: rem(360);
+    }
+
+    @include breakpoint(medium) {
+        width: rem(330);
+    }
+
     display: flex;
     flex-direction: column;
-    padding: rem(24);
+    padding: rem(50) rem(30);
+    border-radius: rem(5);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 27px -10px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
     &__text {
         text-align: left;
-        margin-bottom: rem(24);
+        margin-bottom: rem(28);
     }
 
     &__title {
@@ -25,13 +61,23 @@
         color: var(--grey-400);
     }
 
-    &--supervisor {}
+    &--supervisor {
+        border-top: rem(5) solid var(--red);
 
-    &--team {}
+    }
 
-    &--karma {}
+    &--team {
+        border-top: rem(5) solid var(--cyan);
+    }
 
-    &--calculator {}
+    &--karma {
+        border-top: rem(5) solid var(--orange);
+
+    }
+
+    &--calculator {
+        border-top: rem(5) solid var(--blue);
+    }
 
     &__icon {
         align-self: flex-end;
@@ -44,4 +90,22 @@
 
         &--calculator {}
     }
+}
+
+.item-a {
+    grid-area: a;
+}
+
+.item-b {
+    grid-area: b;
+    justify-self: end;
+}
+
+.item-c {
+    grid-area: c;
+    justify-self: start;
+}
+
+.item-d {
+    grid-area: d;
 }
